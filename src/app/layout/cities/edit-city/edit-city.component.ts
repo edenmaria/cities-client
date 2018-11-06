@@ -4,11 +4,11 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
-    selector: 'app-action-city',
-    templateUrl: './action-city.component.html',
-    styleUrls: ['./action-city.component.scss']
+    selector: 'app-edit-city',
+    templateUrl: './edit-city.component.html',
+    styleUrls: ['./edit-city.component.scss']
 })
-export class ActionCityComponent implements OnInit {
+export class EditCityComponent implements OnInit {
     closeResult: string;
     form: FormGroup;
     @Input() data: string;

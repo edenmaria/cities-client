@@ -7,6 +7,7 @@ import { CitiesRoutingModule } from './cities-routing.module';
 import { CitiesComponent } from './cities.component';
 import { PageHeaderModule } from './../../shared';
 import { ActionCityComponent } from './action-city/action-city.component';
+import { EditCityComponent } from './edit-city/edit-city.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ActionCityComponent } from './action-city/action-city.component';
   ],
   declarations: [
     CitiesComponent,
-    ActionCityComponent
+    ActionCityComponent,
+    EditCityComponent
   ]
 })
 export class CitiesModule { }

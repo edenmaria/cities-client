@@ -1,0 +1,32 @@
+                <!-- <button class="btn btn-primary" (click)="open(content)">Add City {{ data }}</button> -->
+<i class="fa fa-edit" (click)="open(content)">{{ data }}</i>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Edit City</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="form">
+            <fieldset class="form-group">
+                <label>Name</label>
+                <input class="form-control" formControlName="name" placeholder="Name of city">
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label>Zipcode</label>
+                <input class="form-control" formControlName="zipcode" placeholder="Zipcode of city">
+            </fieldset>
+            <fieldset class="form-group">
+                <label>Population</label>
+                <input class="form-control" formControlName="population" placeholder="Population of city">
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="c(form)">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+           
