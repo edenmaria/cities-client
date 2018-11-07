@@ -34,6 +34,7 @@ export class ActionCityComponent implements OnInit {
             this.closeResult = `Closed with: ${result}`;
             this.citiesService.addCity(result.value)
               .subscribe( (resp) => {
+                  this.citiesService.emitChange();
             });
 
         }, (reason) => {

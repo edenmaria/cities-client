@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -10,6 +11,17 @@ export class CitiesService {
   constructor(private http: HttpClient) { }
 
   private citiesUrl = 'http://localhost:8080/api/cities';
+
+  // Observable string sources
+  private emitChangeSource = new Subject();
+
+  // Observable string streams
+  changeEmitted$ = this.emitChangeSource.asObservable();
+
+  // Service message commands
+  emitChange() {
+    this.emitChangeSource.next();
+  }
 
   public getCities() {
     return this.http.get(this.citiesUrl);

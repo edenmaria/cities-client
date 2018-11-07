@@ -16,10 +16,18 @@ export class CitiesComponent implements OnInit {
   constructor(private citiesService: CitiesService) { }
 
   ngOnInit() {
-    this.citiesService.getCities()
+    this.citiesService.changeEmitted$.subscribe( res => {
+      this.citiesService.getCities()
       .subscribe( (resp) => {
         this.rows = resp;
     });
+    });
+    this.citiesService.emitChange();
+  //   this.citiesService.getCities()
+  //   .subscribe( (resp) => {
+  //     this.rows = resp;
+  // });
+    
   }
 
 }
