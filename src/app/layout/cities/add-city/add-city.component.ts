@@ -6,11 +6,11 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { CitiesService } from '../../../services/cities.service/cities.service';
 
 @Component({
-    selector: 'app-action-city',
-    templateUrl: './action-city.component.html',
-    styleUrls: ['./action-city.component.scss']
+    selector: 'app-add-city',
+    templateUrl: './add-city.component.html',
+    styleUrls: ['./add-city.component.scss']
 })
-export class ActionCityComponent implements OnInit {
+export class AddCityComponent implements OnInit {
     closeResult: string;
     form: FormGroup;
     @Input() data: any;

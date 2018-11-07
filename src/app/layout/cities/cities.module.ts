@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CitiesRoutingModule } from './cities-routing.module';
 import { CitiesComponent } from './cities.component';
 import { PageHeaderModule } from './../../shared';
-import { ActionCityComponent } from './action-city/action-city.component';
+import { AddCityComponent } from './add-city/add-city.component';
 import { EditCityComponent } from './edit-city/edit-city.component';
 import { ViewCityComponent } from './view-city/view-city.component';
 
@@ -21,7 +21,7 @@ import { ViewCityComponent } from './view-city/view-city.component';
   ],
   declarations: [
     CitiesComponent,
-    ActionCityComponent,
+    AddCityComponent,
     EditCityComponent,
     ViewCityComponent
   ]
