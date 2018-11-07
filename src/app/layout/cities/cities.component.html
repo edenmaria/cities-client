@@ -8,24 +8,24 @@
                 <div class="card-body table-responsive">
                     <table class="table table-hover table-striped">
                         <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Zip Code</th>
-                            <th>Population</th>
-                            <th>Actions</th>
-                        </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Zip Code</th>
+                                <th>Population</th>
+                                <th>Actions</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>/index.html</td>
-                            <td>1265</td>
-                            <td>32.3%</td>
-                            <td>
-                              <app-view-city  [data]="'HolaMUndo'"></app-view-city>&nbsp;
-                              <app-edit-city  [data]="'HolaMUndo'"></app-edit-city>
-                            </td>
-                        </tr>
-                        <tr>
+                            <tr *ngFor="let row of rows">
+                                <td>{{ row.name }}</td>
+                                <td>{{ row.zipcode }}</td>
+                                <td>{{ row.population }}</td>
+                                <td>
+                                    <app-view-city [data]="'HolaMUndo'"></app-view-city>&nbsp;
+                                    <app-edit-city [data]="'HolaMUndo'"></app-edit-city>
+                                </td>
+                            </tr>
+                            <!-- <tr>
                             <td>/about.html</td>
                             <td>261</td>
                             <td>33.3%</td>
@@ -54,7 +54,7 @@
                             <td>/blog/post.html</td>
                             <td>1233</td>
                             <td>93.2%</td>
-                        </tr>
+                        </tr> -->
                         </tbody>
                     </table>
                 </div>

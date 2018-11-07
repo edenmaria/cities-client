@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 
+import { CitiesService } from '../../services/cities.service/cities.service';
+
 @Component({
   selector: 'app-cities',
   templateUrl: './cities.component.html',
@@ -9,9 +11,15 @@ import { routerTransition } from '../../router.animations';
 })
 export class CitiesComponent implements OnInit {
 
-  constructor() { }
+  rows: any;
+
+  constructor(private citiesService: CitiesService) { }
 
   ngOnInit() {
+    this.citiesService.getCities()
+      .subscribe( (resp) => {
+        this.rows = resp;
+    });
   }
 
 }
