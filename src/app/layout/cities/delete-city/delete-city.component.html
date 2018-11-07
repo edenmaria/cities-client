@@ -1,0 +1,33 @@
+<i class="fa fa-trash" (click)="open(content)"></i>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">View City</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="form">
+            <fieldset class="form-group">
+                <label>Name</label>
+                <input class="form-control" formControlName="name" disabled [value]="data.name">
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label>Zipcode</label>
+                <input class="form-control" formControlName="zipcode" disabled [value]="data.zipcode">
+            </fieldset>
+            <fieldset class="form-group">
+                <label>Population</label>
+                <input class="form-control" formControlName="population" disabled [value]="data.population">
+            </fieldset>
+            <input type="hidden" formControlName="id" [value]="data.id">
+        </form>
+        <p>You are sure the this action?</p>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="c(form)">Delete</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>

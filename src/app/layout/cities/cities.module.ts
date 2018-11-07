@@ -9,6 +9,7 @@ import { PageHeaderModule } from './../../shared';
 import { AddCityComponent } from './add-city/add-city.component';
 import { EditCityComponent } from './edit-city/edit-city.component';
 import { ViewCityComponent } from './view-city/view-city.component';
+import { DeleteCityComponent } from './delete-city/delete-city.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ViewCityComponent } from './view-city/view-city.component';
     CitiesComponent,
     AddCityComponent,
     EditCityComponent,
-    ViewCityComponent
+    ViewCityComponent,
+    DeleteCityComponent
   ]
 })
 export class CitiesModule { }
