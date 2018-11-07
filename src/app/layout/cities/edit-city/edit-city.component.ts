@@ -3,6 +3,8 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+import { CitiesService } from '../../../services/cities.service/cities.service';
+
 @Component({
     selector: 'app-edit-city',
     templateUrl: './edit-city.component.html',
@@ -11,24 +13,31 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class EditCityComponent implements OnInit {
     closeResult: string;
     form: FormGroup;
-    @Input() data: string;
+    @Input() data: any;
 
     constructor(
         private modalService: NgbModal,
-        private formBuilder: FormBuilder) { }
+        private formBuilder: FormBuilder,
+        private citiesService: CitiesService) { }
 
     ngOnInit() {
         this.form = this.formBuilder.group({
-            name: '',
-            zipcode: '',
-            population: '',
+            id: this.data.id,
+            name: this.data.name,
+            zipcode: this.data.zipcode,
+            population: this.data.population,
         });
-        console.log(this.data);
+        // console.log(this.data);
     }
 
     open(content) {
         this.modalService.open(content).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
+            this.citiesService.updateCity(result.value)
+              .subscribe( (resp) => {
+                  this.citiesService.emitChange();
+            });
+
         }, (reason) => {
             this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });

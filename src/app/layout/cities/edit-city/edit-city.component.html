@@ -11,17 +11,18 @@
         <form [formGroup]="form">
             <fieldset class="form-group">
                 <label>Name</label>
-                <input class="form-control" formControlName="name" placeholder="Name of city">
+                <input class="form-control" formControlName="name" placeholder="Name of city" [value]="data.name">
             </fieldset>
 
             <fieldset class="form-group">
                 <label>Zipcode</label>
-                <input class="form-control" formControlName="zipcode" placeholder="Zipcode of city">
+                <input class="form-control" formControlName="zipcode" placeholder="Zipcode of city" [value]="data.zipcode">
             </fieldset>
             <fieldset class="form-group">
                 <label>Population</label>
-                <input class="form-control" formControlName="population" placeholder="Population of city">
+                <input class="form-control" formControlName="population" placeholder="Population of city" [value]="data.population">
             </fieldset>
+            <input type="hidden" formControlName="id" [value]="data.id">
         </form>
     </div>
     <div class="modal-footer">
@@ -29,4 +30,3 @@
         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
     </div>
 </ng-template>
-           

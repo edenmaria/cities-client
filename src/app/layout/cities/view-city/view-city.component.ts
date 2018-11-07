@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class ViewCityComponent implements OnInit {
     closeResult: string;
     form: FormGroup;
-    @Input() data: string;
+    @Input() data: any;
 
     constructor(
         private modalService: NgbModal,
@@ -23,7 +23,7 @@ export class ViewCityComponent implements OnInit {
             zipcode: '',
             population: '',
         });
-        console.log(this.data);
+        // console.log(this.data);
     }
 
     open(content) {

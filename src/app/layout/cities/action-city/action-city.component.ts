@@ -13,7 +13,7 @@ import { CitiesService } from '../../../services/cities.service/cities.service';
 export class ActionCityComponent implements OnInit {
     closeResult: string;
     form: FormGroup;
-    @Input() data: string;
+    @Input() data: any;
 
     constructor(
         private modalService: NgbModal,
