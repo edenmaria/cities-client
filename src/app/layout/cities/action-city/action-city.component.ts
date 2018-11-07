@@ -3,6 +3,8 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+import { CitiesService } from '../../../services/cities.service/cities.service';
+
 @Component({
     selector: 'app-action-city',
     templateUrl: './action-city.component.html',
@@ -15,7 +17,8 @@ export class ActionCityComponent implements OnInit {
 
     constructor(
         private modalService: NgbModal,
-        private formBuilder: FormBuilder) { }
+        private formBuilder: FormBuilder,
+        private citiesService: CitiesService) { }
 
     ngOnInit() {
         this.form = this.formBuilder.group({
@@ -29,6 +32,10 @@ export class ActionCityComponent implements OnInit {
     open(content) {
         this.modalService.open(content).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
+            this.citiesService.addCity(result.value)
+              .subscribe( (resp) => {
+            });
+
         }, (reason) => {
             this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
